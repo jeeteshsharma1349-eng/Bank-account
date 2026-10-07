@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bank Transaction Demo Simulator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div><h1>Bank Transaction Demo Simulator</h1><small>SIMULATION ONLY • NOT A REAL BANK RECEIPT</small></div>
+</header>
+
+<main>
+<section class="card">
+<h2>Transaction Builder</h2>
+<div class="grid">
+<label>Bank
+<select id="bank">
+<option value="ICICI Bank" data-logo="ICICI" data-theme="icici">ICICI Bank</option>
+<option value="Kotak Mahindra Bank" data-logo="K" data-theme="kotak">Kotak Mahindra Bank</option>
+<option value="State Bank of India" data-logo="SBI" data-theme="sbi">State Bank of India</option>
+<option value="HDFC Bank" data-logo="HDFC" data-theme="hdfc">HDFC Bank</option>
+<option value="Axis Bank" data-logo="AXIS" data-theme="axis">Axis Bank</option>
+<option value="Demo Bank" data-logo="DB" data-theme="demo">Demo Bank</option>
+</select></label>
+
+<label>Transaction Status<select id="status"><option>Demo Successful</option><option>Demo Pending</option><option>Demo Processing</option><option>Demo Failed</option></select></label>
+<label>Amount (₹)<input id="amount" type="number" step="0.01" placeholder="140000"></label>
+<label>Transfer Mode<select id="mode"><option>IMPS</option><option>UPI</option><option>NEFT</option></select></label>
+<label>Date<input id="date" type="date"></label>
+<label>Time<input id="time" type="time"></label>
+<label>Beneficiary Name<input id="beneficiary" placeholder="Beneficiary name"></label>
+<label>Beneficiary Bank<input id="beneficiaryBank" placeholder="Beneficiary bank"></label>
+<label>Account Number<input id="account" placeholder="Account number"></label>
+<label>IFSC Code<input id="ifsc" placeholder="IFSC code"></label>
+<label>Transaction ID<input id="txnId" placeholder="Auto-generated if blank"></label>
+<label>UPI Reference<input id="upiRef" placeholder="Auto-generated if blank"></label>
+<label>IMPS Reference<input id="impsRef" placeholder="Auto-generated if blank"></label>
+<label class="wide">Remarks<input id="remarks" placeholder="Demo transaction"></label>
+<label class="wide">Optional logo upload<input id="logoUpload" type="file" accept="image/*"></label>
+</div>
+<button id="generate">Generate Demo Receipt</button>
+</section>
+
+<section class="preview">
+<div id="receipt" class="receipt demo">
+<div class="watermark">DEMO • NOT A REAL TRANSACTION</div>
+<div class="brandbar" id="brandbar">
+  <div class="brandmark" id="brandmark">ICICI</div>
+  <div class="brandtitle" id="rBank">ICICI Bank</div>
+</div>
+<div class="statusbox">
+  <div class="check" id="check">✓</div>
+  <h2 id="rStatus">Demo Successful</h2>
+  <p>Simulated transaction receipt</p>
+  <div class="amount" id="rAmount">₹0.00</div>
+  <div id="rWords">Zero Only</div>
+</div>
+<div class="rows">
+<div><span>Transaction ID</span><b id="rTxn">—</b></div>
+<div><span>UPI Reference</span><b id="rUpi">—</b></div>
+<div><span>IMPS Reference</span><b id="rImps">—</b></div>
+<div><span>Transaction Date</span><b id="rDate">—</b></div>
+<div><span>Transaction Time</span><b id="rTime">—</b></div>
+<div><span>Transfer Mode</span><b id="rMode">IMPS</b></div>
+<div><span>Beneficiary Name</span><b id="rBeneficiary">—</b></div>
+<div><span>Bank Name</span><b id="rBeneficiaryBank">—</b></div>
+<div><span>Account Number</span><b id="rAccount">—</b></div>
+<div><span>IFSC Code</span><b id="rIfsc">—</b></div>
+<div><span>Remarks</span><b id="rRemarks">—</b></div>
+</div>
+<div class="footer">DEMO / SIMULATION ONLY — NO PAYMENT WAS MADE</div>
+</div>
+<div class="buttons"><button id="download">Download Demo Image</button><button id="print">Print</button></div>
+</section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
